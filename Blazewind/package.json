@@ -4,7 +4,8 @@
   "description": "A blazor server side application template with TailwindCSS styling",
   "main": "postcss.config.js",
   "scripts": {
-    "buildcss": "postcss wwwroot/css/app.css -o wwwroot/css/app.min.css"
+    "buildcss": "postcss wwwroot/css/app.css -o wwwroot/css/app.min.css",
+    "watch": "concurrently  \"postcss wwwroot/css/app.css -o wwwroot/css/app.min.css --watch\"  \" postcss ./obj/Debug/net7.0/scopedcss/bundle/Blazewind.styles.css  -o ./obj/Debug/net7.0/scopedcss/bundle/Blazewind.styles.css --watch \"  \"postcss wwwroot/css/app.css -o wwwroot/css/app.min.css\" \"cross-env DOTNET_WATCH_RESTART_ON_RUDE_EDIT=1 dotnet watch\""
   },
   "author": "mrmikearmstrong",
   "license": "ISC",
@@ -14,6 +15,8 @@
     "tailwindcss": "^3.2.7"
   },
   "dependencies": {
+    "concurrently": "^8.2.1",
+    "cross-env": "^7.0.3",
     "postcss-cli": "^10.1.0"
   }
 }
